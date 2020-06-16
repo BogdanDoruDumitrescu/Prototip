@@ -6,12 +6,17 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.AdminSetPrice">
     <children>
-        <Button fx:id="setPrice" layoutX="388.0" layoutY="187.0" mnemonicParsing="false" text="Set Price" />
+        <Button fx:id="setPrice" layoutX="388.0" layoutY="220.0" mnemonicParsing="false" text="Set Price" />
         <Label layoutX="212.0" layoutY="67.0" text="Insert Price">
             <font>
                 <Font size="36.0" />
             </font>
         </Label>
-        <TextField alignment="CENTER" layoutX="212.0" layoutY="187.0" />
+        <TextField fx:id="priceTextField" alignment="CENTER" layoutX="212.0" layoutY="220.0" />
+      <TextField fx:id="usernameTextField" layoutX="212.0" layoutY="137.0" />
+      <TextField fx:id="passwordTextField" layoutX="212.0" layoutY="174.0" />
+      <Label fx:id="usernameAdmin" layoutX="115.0" layoutY="141.0" text="Admin Username" />
+      <Label fx:id="passwordLabel" layoutX="115.0" layoutY="178.0" text="Admin Password" />
+      <Label fx:id="priceLabel" layoutX="115.0" layoutY="224.0" text="Admin Price" />
     </children>
 </AnchorPane>

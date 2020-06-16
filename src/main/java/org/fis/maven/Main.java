@@ -4,9 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main {
+    private int price;
+
     public static void main(String[] args){
         Logger LOGGER = LoggerFactory.getLogger(Main.class);
-
         LOGGER.trace("This is a TRACE log");
         LOGGER.debug("This is a DEBUG log");
         LOGGER.info("This is an INFO log");
