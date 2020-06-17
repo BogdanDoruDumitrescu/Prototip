@@ -11,17 +11,20 @@ import org.fis.maven.Services.AdminService;
 import org.fis.maven.Services.ClientService;
 import org.fis.maven.Services.DriverService;
 
+
 public class Main extends Application{
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        //ClientService.loadClients();
+        //AdminService.loadPrice();
+        //DriverService.loadDrivers();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminSetPrice.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("AdminSetPrice.fxml"));
+        primaryStage.setTitle("Set Price");
+        primaryStage.setScene(new Scene(root,600,600));
         primaryStage.show();
-
 
     }
     public static void main (String[] args){
