@@ -1,77 +1,51 @@
 package org.fis.maven.Services;
 
-<<<<<<< HEAD
-import org.fis.maven.Models.Admin;
-
-public class AdminService {
-    public boolean checkAccountAdmin(String user, String pass) {
-        Admin admin = new Admin();
-        if ((admin.getUsername().equals(user)) && (admin.getPassword().equals(pass)))
-            return true;
-        else
-            return false;
-=======
-
 import org.fis.maven.Models.Admin;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class AdminService {
-    private static ArrayList<Admin> p = new ArrayList<>();
+public class AdminService{
+    private static ArrayList <Admin> admin = new ArrayList<>();
+    Admin admin2;
 
-    public static void loadPrice() {
+    public static void loadAdmin(){
         try {
-            p = new ArrayList<>();
-            JSONParser jp = new JSONParser();
-            FileReader fr = new FileReader("src/main/resources/Admin.json");
-            Object obj = jp.parse(fr);
-            JSONArray ja = (JSONArray) obj;
+            JSONParser jsonParser= new JSONParser();
+            FileReader fileReader = new FileReader("src/main/resources/Admin.json");
+            Object objAdminParser = jsonParser.parse(fileReader);
+            JSONArray  jsonArray= (JSONArray)objAdminParser;
 
-            for (Object price : ja) {
-                JSONObject jo = (JSONObject) price;
-                p.add(new Admin(Integer.parseInt(jo.get("price").toString())));
-            }
-        } catch (Exception e) {
+            JSONObject o = (JSONObject) jsonArray;
+
+            String user = o.get("username").toString();
+            String pass = o.get("password").toString();
+            int price = (int) o.get("price");
+
+            admin.add(new Admin(user,pass, price));
+        }catch (Exception e){
             System.out.println(e);
         }
     }
 
-    public static ArrayList<Admin> getP() {
-        return  p;
-    }
+    public static boolean checkCredentials(String user, String pass){
+        boolean check = false;
 
-    public static void WritePrice() {
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter("src/main/resources/Admin.json");
-
-            JSONArray ja = new JSONArray();
-
-            for (Admin i : p) {
-                JSONObject jo = new JSONObject();
-                jo.put("price", String.valueOf(i.getPrice()));
-
-                ja.add(jo);
-            }
-
-            fw.write(ja.toJSONString());
-        }catch (Exception e) {
-            System.out.println(e);
-        }finally {
-            try{
-                fw.flush();
-                fw.close();
-            }catch (Exception e){
-                System.out.println(e);
-            }
+        for(Admin i : admin){
+            if ((i.getUsername().equals(user)) && (i.getPassword().equals(pass)))
+                check = true;
+                break;
         }
->>>>>>> origin/SetPriceDone
+
+        return check;
     }
+
+    public static ArrayList<Admin> getAdmin(){return admin;}
 }

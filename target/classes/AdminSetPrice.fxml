@@ -6,12 +6,29 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.AdminSetPrice">
     <children>
-        <Button layoutX="388.0" layoutY="187.0" mnemonicParsing="false" onAction="#SetPrice" text="Set Price" />
+        <Button layoutX="388.0" layoutY="225.0" mnemonicParsing="false" onAction="#setPrice" text="Set Price" />
         <Label fx:id="ide" layoutX="212.0" layoutY="67.0" text="Insert Price">
             <font>
                 <Font size="36.0" />
             </font>
         </Label>
-        <TextField fx:id="priceField" alignment="CENTER" layoutX="212.0" layoutY="187.0" />
+        <TextField fx:id="passwordField" alignment="CENTER" layoutX="212.0" layoutY="187.0" />
+      <Label layoutX="112.0" layoutY="224.0" text="Price/KM">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="111.0" layoutY="186.0" text="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="109.0" layoutY="148.0" text="Username">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userTextField" layoutX="212.0" layoutY="149.0" />
+      <TextField fx:id="priceField" layoutX="212.0" layoutY="225.0" />
     </children>
 </AnchorPane>
