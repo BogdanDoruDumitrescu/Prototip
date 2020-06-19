@@ -16,7 +16,7 @@ public class Admin {
 
     @Override
     public String toString() {
-            return "Admin{" + " price=" + price + " lei" +'}';
+            return "Admin{" + " price=" + price + '}';
         }
     }
 

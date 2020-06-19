@@ -2,16 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LogRegMenu">
-    <children>
-        <Button fx:id="loginButton" layoutX="346.0" layoutY="131.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" text="Login" />
-        <Button fx:id="registerButton" layoutX="124.0" layoutY="131.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" text="Register" />
-        <Label alignment="CENTER" layoutX="179.0" layoutY="25.0" prefHeight="88.0" prefWidth="243.0" text="Inchiriere Vehicule">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Label>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.MenuRegister">
+   <children>
+      <Label fx:id="id" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="80.0" prefHeight="47.0" prefWidth="201.0" text="Rent a Cab App" />
+      <Button layoutX="153.0" layoutY="217.0" mnemonicParsing="false" onAction="#loginButton" text="Login" />
+      <Button layoutX="358.0" layoutY="217.0" mnemonicParsing="false" text="Register" />
+   </children>
 </AnchorPane>
