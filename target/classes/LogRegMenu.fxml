@@ -6,7 +6,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.MenuRegister">
    <children>
       <Label fx:id="id" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="80.0" prefHeight="47.0" prefWidth="201.0" text="Rent a Cab App" />
-      <Button layoutX="153.0" layoutY="217.0" mnemonicParsing="false" onAction="#loginButton" text="Login" />
-      <Button layoutX="358.0" layoutY="217.0" mnemonicParsing="false" text="Register" />
+      <Button layoutX="264.0" layoutY="146.0" mnemonicParsing="false" onAction="#loginclient" text="Login Client" />
+      <Button layoutX="257.0" layoutY="246.0" mnemonicParsing="false" onAction="#registerButton" text="Register" />
+      <Button layoutX="247.0" layoutY="200.0" mnemonicParsing="false" onAction="#logindriver" text="Login Driver" />
+      <Button layoutX="40.0" layoutY="53.0" mnemonicParsing="false" onAction="#butonBack" text="Back" />
    </children>
 </AnchorPane>

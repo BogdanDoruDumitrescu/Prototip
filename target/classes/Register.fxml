@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.RegisterAccount">
     <children>
-        <Button fx:id="singUp" layoutX="406.0" layoutY="321.0" mnemonicParsing="false" text="Sign Up">
+        <Button layoutX="406.0" layoutY="321.0" mnemonicParsing="false" onAction="#signin" text="Sign in">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <TextField layoutX="188.0" layoutY="141.0" />
-        <TextField layoutX="188.0" layoutY="184.0" />
-        <TextField layoutX="188.0" layoutY="225.0" />
-        <Label layoutX="88.0" layoutY="183.0" text="Username">
+        <TextField fx:id="NameField" layoutX="188.0" layoutY="114.0" />
+        <TextField fx:id="UsernameField" layoutX="188.0" layoutY="153.0" />
+        <TextField fx:id="MailField" layoutX="188.0" layoutY="187.0" />
+        <Label layoutX="88.0" layoutY="152.0" text="Username">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="88.0" layoutY="224.0" text="Email">
+        <Label layoutX="88.0" layoutY="186.0" text="Email">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="88.0" layoutY="274.0" text="Card">
+        <Label layoutX="81.0" layoutY="224.0" text="Credits">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="88.0" layoutY="140.0" text="Nume">
+        <Label layoutX="88.0" layoutY="113.0" text="Name">
             <font>
                 <Font size="18.0" />
             </font>
@@ -41,20 +39,18 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <PasswordField layoutX="188.0" layoutY="328.0" />
-        <TextField layoutX="188.0" layoutY="275.0" />
-        <Label layoutX="184.0" layoutY="68.0" text="Register">
+        <PasswordField fx:id="PasswordField" layoutX="188.0" layoutY="328.0" />
+        <TextField fx:id="CreditField" layoutX="181.0" layoutY="225.0" />
+        <Label fx:id="id" layoutX="184.0" layoutY="68.0" text="Register">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-        <ChoiceBox layoutX="436.0" layoutY="158.0" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Driver" />
-                    <String fx:value="Client" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+      <Button layoutX="35.0" layoutY="30.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+      <Label layoutX="87.0" layoutY="276.0" prefHeight="29.0" prefWidth="62.0" text="Role">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextField fx:id="RoleField" layoutX="187.0" layoutY="263.0" />
     </children>
 </AnchorPane>
