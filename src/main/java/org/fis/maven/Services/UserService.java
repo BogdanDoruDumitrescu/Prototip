@@ -69,11 +69,11 @@ public class UserService {
 
             for(User i:u){
                 JSONObject jo = new JSONObject();
-                jo.put("name",i.getName());
-                jo.put("usermane",i.getUsername());
-                jo.put("password",i.getPassword());
-                jo.put("mail",i.getMail());
-                jo.put("role",i.getRole());
+                jo.put("name",String.valueOf(i.getName()));
+                jo.put("usermane",String.valueOf(i.getUsername()));
+                jo.put("password",String.valueOf(i.getPassword()));
+                jo.put("mail",String.valueOf(i.getMail()));
+                jo.put("role",String.valueOf(i.getRole()));
                 jo.put("credit",String.valueOf(i.getCredit()));
 
                 ja.add(jo);
