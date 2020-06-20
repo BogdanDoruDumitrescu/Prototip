@@ -12,16 +12,13 @@ public class User {
 
     private boolean logged;
 
-    public User(String name, String username, String password, int credit, String mail, String Role){
+    public User(String name, String username, String password, String mail, String role, int credit){
         this.name=name;
         this.username=username;
         this.password=password;
         this.mail=mail;
         this.role=role;
         this.credit=credit;
-    }
-
-    public User(String name, String username, String password, String mail, String role, int credit) {
     }
 
     public String getName(){return name;}
