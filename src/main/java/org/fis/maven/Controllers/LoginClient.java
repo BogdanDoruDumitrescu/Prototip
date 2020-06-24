@@ -1,6 +1,5 @@
 package org.fis.maven.Controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,7 +21,8 @@ public class LoginClient {
     @FXML
     private TextField UsernameField;
     @FXML
-    private PasswordField passwordField;
+    private PasswordField PasswordField;
+
     @FXML
     public void butonBack()
     {
@@ -40,9 +40,9 @@ public class LoginClient {
     }
 
 
-    public void login() {
+    public void butonLogin() {
             try {
-                if (UserService.checkCredentials(UsernameField.getText(), UserService.encodePassword(passwordField.getText()))){
+                if (UserService.checkCredentials(UsernameField.getText(), UserService.encodePassword(PasswordField.getText()))){
                     try{
                         ArrayList<User> u = UserService.getU();
                         for(User i:u){
@@ -53,7 +53,7 @@ public class LoginClient {
 
                         Stage stage=(Stage)id.getScene().getWindow();
                         Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
-                        stage.setTitle("Shop Page");
+                        stage.setTitle("Menu Page");
                         stage.setScene(new Scene(ceva,600,600));
                     }catch (Exception e){
                         System.out.println(e);

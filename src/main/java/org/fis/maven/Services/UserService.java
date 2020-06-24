@@ -38,13 +38,12 @@ public class UserService {
         }
     }
 
-    public static boolean checkCredentials(String id, String pass){
+    public static boolean checkCredentials(String id, String password){
         boolean found = false;
 
         for(User i:u){
-            if(i.getUsername().equals(id)&&i.getPassword().equals(pass)){
-                found=true;
-                break;
+            if(i.getUsername().equals(id)&&i.getPassword().equals(password)){
+                found=true;break;
             }
         }
 
@@ -70,8 +69,9 @@ public class UserService {
             for(User i:u){
                 JSONObject jo = new JSONObject();
                 jo.put("name",i.getName());
-                jo.put("usermane",i.getUsername());
+                jo.put("username",i.getUsername());
                 jo.put("password",encodePassword(i.getPassword()));
+                //jo.put("password",i.getPassword());
                 jo.put("mail",i.getMail());
                 jo.put("role",i.getRole());
                 jo.put("credit",String.valueOf(i.getCredit()));
