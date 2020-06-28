@@ -34,7 +34,7 @@ public class Main extends Application{
         PriceService.setPath("src/main/resources/Price.json");
         AdminService.setPath("src/main/resources/Admin.json");
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("AdminSetPrice.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root,600,600));
         primaryStage.show();
