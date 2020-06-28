@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.DriverPage">
+   <children>
+      <Label layoutX="244.0" layoutY="14.0" text="Driver Page">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="availabilyLabel" layoutX="88.0" layoutY="158.0" text="Availability">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="withdrawLabel" layoutX="88.0" layoutY="200.0" prefHeight="27.0" prefWidth="150.0" text="Withdraw Money">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="moneyField" layoutX="244.0" layoutY="201.0" />
+      <Button layoutX="411.0" layoutY="201.0" mnemonicParsing="false" onAction="#withdrawButton" text="Withdraw" />
+      <ChoiceBox fx:id="choiceBox" layoutX="243.0" layoutY="159.0" prefWidth="150.0" />
+      <Button layoutX="411.0" layoutY="158.0" mnemonicParsing="false" onAction="#setButton" prefHeight="26.0" prefWidth="67.0" text="Set" />
+   </children>
+</AnchorPane>

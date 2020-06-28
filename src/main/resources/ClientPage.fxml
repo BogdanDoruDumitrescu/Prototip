@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.ClientPage">
+   <children>
+      <Button layoutX="421.0" layoutY="313.0" mnemonicParsing="false" onAction="#addMoney" text="Adauga">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="78.0" layoutY="315.0" text="Adauga Bani">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="moneyField" layoutX="226.0" layoutY="316.0" />
+      <TableView fx:id="tableID" layoutX="179.0" layoutY="56.0" prefHeight="200.0" prefWidth="241.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Cursa" />
+          <TableColumn prefWidth="75.0" text="Plata Cursa" />
+            <TableColumn prefWidth="75.0" text="Km parcursi" />
+        </columns>
+      </TableView>
+      <Label layoutX="240.0" layoutY="22.0" prefHeight="30.0" prefWidth="119.0" text="Istoric curse">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
