@@ -28,11 +28,13 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         //ClientService.loadClients();
-        AdminService.loadPrice();
+        //AdminService.loadPrice();
         //DriverService.loadDrivers();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("AdminSetPrice.fxml"));
-        primaryStage.setTitle("Set the price");
+        AdminService.setPath("src/main/resources/Admin.json");
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
+        primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root,600,600));
         primaryStage.show();
 

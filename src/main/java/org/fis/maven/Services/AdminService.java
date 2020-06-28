@@ -11,55 +11,76 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class AdminService {
-    private static ArrayList<Admin> p = new ArrayList<>();
+    private static ArrayList<Admin> a = new ArrayList<>();
+    private static String path;
 
-    public static void loadPrice() {
-        try {
-            p = new ArrayList<>();
+    public static void loadAdmins(){
+        a.clear();
+
+        try{
             JSONParser jp = new JSONParser();
-            FileReader fr = new FileReader("src/main/resources/Admin.json");
+            FileReader fr = new FileReader(path);
             Object obj = jp.parse(fr);
-            JSONArray ja = (JSONArray) obj;
+            JSONArray ja = (JSONArray)obj;
 
-            for (Object price : ja) {
-                JSONObject jo = (JSONObject) price;
-                p.add(new Admin(Integer.parseInt(jo.get("price").toString())));
+            for(Object admin:ja){
+                JSONObject o = (JSONObject) admin;
+                String name = o.get("name").toString();
+                String id = o.get("username").toString();
+                String pass = o.get("password").toString();
+                String mail = o.get("mail").toString();
+                a.add(new Admin(name,id,pass,mail));
             }
-        } catch (Exception e) {
+
+        }catch(Exception e){
             System.out.println(e);
         }
     }
 
-    public static ArrayList<Admin> getP() {
-        return  p;
-    }
-
-    public static void WritePrice() {
+    public static void writeAdmins() {
         FileWriter fw = null;
         try {
-            fw = new FileWriter("src/main/resources/Admin.json");
+            fw = new FileWriter(path);
 
             JSONArray ja = new JSONArray();
 
-            for (Admin i : p) {
+            for (Admin i : a) {
                 JSONObject jo = new JSONObject();
-                jo.put("price", String.valueOf(i.getPrice()));
+                jo.put("name", i.getName());
+                jo.put("username", i.getUsername());
+                jo.put("password", i.getPassword());
+                jo.put("mail", i.getMail());
 
                 ja.add(jo);
             }
 
             fw.write(ja.toJSONString());
-        }catch (Exception e) {
-            System.out.println(e);
-        }finally {
-            try{
+
+        } catch (Exception e) {
+
+        } finally {
+            try {
                 fw.flush();
                 fw.close();
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e);
             }
+
         }
+    }
+
+    public static String encodePassword(String s){
+        return Base64.getEncoder().encodeToString(s.getBytes());
+    }
+
+    public static void setPath(String path) {
+        AdminService.path = path;
+    }
+
+    public static ArrayList<Admin> getA() {
+        return a;
     }
 }

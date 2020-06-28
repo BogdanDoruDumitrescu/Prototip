@@ -67,4 +67,9 @@ public class MenuRegister {
             System.out.println(e);
         }
     }
+
+    @FXML
+    public void loginadministrator(){
+
+    }
 }

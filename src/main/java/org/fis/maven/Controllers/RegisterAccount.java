@@ -6,16 +6,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
+import org.fis.maven.Exceptions.AlreadyExists;
+import org.fis.maven.Models.Admin;
 import org.fis.maven.Models.User;
+import org.fis.maven.Services.AdminService;
 import org.fis.maven.Services.UserService;
 
 
+import javax.jws.soap.SOAPBinding;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -29,12 +35,20 @@ public class RegisterAccount {
     @FXML
     private TextField MailField;
     @FXML
-    private TextField RoleField;
+    private ChoiceBox role;
     @FXML
     private TextField CreditField;
     @FXML
     private Label id;
     @FXML
+
+    public void initialize(){
+        role.getItems().addAll("Admin", "Driver", "Client");
+        role.setValue("Driver");
+        AdminService.loadAdmins();
+        UserService.loadUser();
+    }
+
     public void backButton()
     {
         try
@@ -50,12 +64,27 @@ public class RegisterAccount {
     }
 
     public void signin() {
-        ArrayList<User> u = UserService.getU();
+        try {
+            if (role.getValue().equals("Admin")) {
+                for (Admin i : AdminService.getA()) {
+                    if (i.getUsername().equals(UsernameField.getText())) {
+                        throw new AlreadyExists();
+                    }
+                }
 
-        try{
-            u.add(new User(NameField.getText(),UsernameField.getText(),PasswordField.getText(),MailField.getText(),RoleField.getText(),Integer.parseInt(CreditField.getText())));
-            UserService.writeUser();
-        }catch (Exception e){
+                AdminService.getA().add(new Admin(NameField.getText(), UsernameField.getText(), AdminService.encodePassword(PasswordField.getText()), MailField.getText()));
+                AdminService.writeAdmins();
+            } else {
+                for(User i:UserService.getU()){
+                    if(i.getUsername().equals(UsernameField.getText())){
+                        throw new AlreadyExists();
+                    }
+                }
+
+                UserService.getU().add(new User(NameField.getText(), UsernameField.getText(), UserService.encodePassword(PasswordField.getText()), MailField.getText(), role.getValue().toString(), Integer.parseInt(CreditField.getText())));
+                UserService.writeUser();
+            }
+        }catch(Exception e){
             System.out.println(e);
         }
     }
