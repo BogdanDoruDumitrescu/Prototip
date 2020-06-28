@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.fis.maven.Services.AdminService;
+import org.fis.maven.Services.PriceService;
 
 
 public class Main extends Application{
@@ -30,7 +31,7 @@ public class Main extends Application{
         //ClientService.loadClients();
         //AdminService.loadPrice();
         //DriverService.loadDrivers();
-
+        PriceService.setPath("src/main/resources/Price.json");
         AdminService.setPath("src/main/resources/Admin.json");
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
