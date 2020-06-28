@@ -10,7 +10,7 @@ public class User {
     private String mail;
     private String role;
 
-    private boolean logged;
+    private boolean logged = false;
 
     public User(String name, String username, String password, String mail, String role, int credit){
         this.name=name;

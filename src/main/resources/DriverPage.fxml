@@ -25,5 +25,6 @@
       <Button layoutX="411.0" layoutY="201.0" mnemonicParsing="false" onAction="#withdrawButton" text="Withdraw" />
       <ChoiceBox fx:id="choiceBox" layoutX="243.0" layoutY="159.0" prefWidth="150.0" />
       <Button layoutX="411.0" layoutY="158.0" mnemonicParsing="false" onAction="#setButton" prefHeight="26.0" prefWidth="67.0" text="Set" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Log out" />
    </children>
 </AnchorPane>

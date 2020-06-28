@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.fis.maven.Services.AdminService;
+import org.fis.maven.Services.RaceService;
 
 
 public class Main extends Application{
@@ -32,6 +33,7 @@ public class Main extends Application{
         //DriverService.loadDrivers();
 
         AdminService.setPath("src/main/resources/Admin.json");
+        RaceService.setPath("src/main/resources/Race.json");
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
         primaryStage.setTitle("Login");
