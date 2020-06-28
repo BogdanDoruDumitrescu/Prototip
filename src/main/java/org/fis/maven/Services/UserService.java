@@ -15,6 +15,8 @@ public class UserService {
     private static ArrayList<User> u = new ArrayList<>();
 
     public static void loadUser(){
+        u.clear();
+
         try{
             JSONParser jp = new JSONParser();
             FileReader fr = new FileReader("src/main/resources/User.json");
@@ -70,7 +72,7 @@ public class UserService {
             for(User i:u){
                 JSONObject jo = new JSONObject();
                 jo.put("name",i.getName());
-                jo.put("usermane",i.getUsername());
+                jo.put("username",i.getUsername());
                 jo.put("password",encodePassword(i.getPassword()));
                 jo.put("mail",i.getMail());
                 jo.put("role",i.getRole());
