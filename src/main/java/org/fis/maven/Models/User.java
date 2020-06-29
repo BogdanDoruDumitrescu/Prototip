@@ -9,6 +9,7 @@ public class User {
     private int credit;
     private String mail;
     private String role;
+    private String status = "";
 
     private boolean logged = false;
 
@@ -19,6 +20,16 @@ public class User {
         this.mail=mail;
         this.role=role;
         this.credit=credit;
+    }
+
+    public User(String name, String username, String password, String mail, String role, int credit, String status) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.credit = credit;
+        this.mail = mail;
+        this.role = role;
+        this.status = status;
     }
 
     public String getName(){return name;}
@@ -48,6 +59,14 @@ public class User {
     public boolean isLogged() {return logged;}
 
     public void setLogged(boolean logged) {this.logged=logged;}
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @Override
     public boolean equals(Object o) {

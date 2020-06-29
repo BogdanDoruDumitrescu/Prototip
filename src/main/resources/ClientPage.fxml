@@ -20,9 +20,9 @@
       <TableView fx:id="tableID" layoutX="29.0" layoutY="74.0" prefHeight="200.0" prefWidth="300.0">
         <columns>
            <TableColumn fx:id="driverColumn" prefWidth="75.0" text="With Driver" />
-          <TableColumn fx:id="raceColumn" prefWidth="75.0" text="Cursa" />
             <TableColumn fx:id="kmColumn" prefWidth="75.0" text="Km parcursi" />
           <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Plata Cursa" />
+            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
         </columns>
       </TableView>
       <Label layoutX="119.0" layoutY="17.0" prefHeight="30.0" prefWidth="119.0" text="Istoric curse">
@@ -46,5 +46,6 @@
          </font>
       </Label>
       <Button fx:id="logoutButton" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
+      <Button layoutX="489.0" layoutY="248.0" mnemonicParsing="false" onAction="#send" text="Send Request" />
    </children>
 </AnchorPane>

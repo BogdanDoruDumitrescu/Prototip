@@ -7,9 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.fis.maven.Models.Race;
 import org.fis.maven.Services.AdminService;
 import org.fis.maven.Services.RaceService;
 import org.fis.maven.Services.UserService;
+import sun.text.normalizer.RangeValueIterator;
 
 
 public class Main extends Application{
@@ -29,19 +31,15 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        AdminService.loadAdmins();
-        UserService.loadUser();
-
         AdminService.setPath("src/main/resources/Admin.json");
         RaceService.setPath("src/main/resources/Race.json");
+        UserService.setPath("src/main/resources/User.json");
+
+        Race.setPricePerKm(0);
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root,600,600));
         primaryStage.show();
-
     }
-
-
 }

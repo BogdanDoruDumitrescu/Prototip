@@ -14,7 +14,7 @@ public class RaceService {
     private static String path;
 
     public static void loadRaces() {
-        r.clear();
+        r = new ArrayList<>();
 
         try {
             JSONParser jp = new JSONParser();
@@ -26,9 +26,11 @@ public class RaceService {
                 JSONObject o = (JSONObject) race;
                 String driverUserName = o.get("driverUserName").toString();
                 String clientUserName = o.get("clientUserName").toString();
-                int pricePerKm = Integer.parseInt(o.get("pricePerKm").toString());
                 int totalPrice = Integer.parseInt(o.get("totalPrice").toString());
                 int km = Integer.parseInt(o.get("km").toString());
+                String state = o.get("state").toString();
+
+                r.add(new Race(driverUserName, clientUserName, km, totalPrice, state));
             }
 
         } catch (Exception e) {
@@ -52,7 +54,8 @@ public class RaceService {
                 jo.put("clientUserName", i.getClientUserName());
                 jo.put("pricePerKm", i.getPricePerKm());
                 jo.put("km", i.getKm());
-                jo.put("totalPrice", i.getKm());
+                jo.put("totalPrice", i.getTotalPrice());
+                jo.put("state", i.getState());
 
                 ja.add(jo);
             }

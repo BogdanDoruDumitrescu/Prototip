@@ -81,7 +81,11 @@ public class RegisterAccount {
                     }
                 }
 
-                UserService.getU().add(new User(NameField.getText(), UsernameField.getText(), UserService.encodePassword(PasswordField.getText()), MailField.getText(), role.getValue().toString(), Integer.parseInt(CreditField.getText())));
+                User user = new User(NameField.getText(), UsernameField.getText(), UserService.encodePassword(PasswordField.getText()), MailField.getText(), role.getValue().toString(), Integer.parseInt(CreditField.getText()));
+                UserService.getU().add(user);
+                if(role.getValue().equals("Driver")){
+                    user.setStatus("Available");
+                }
                 UserService.writeUser();
             }
         }catch(Exception e){

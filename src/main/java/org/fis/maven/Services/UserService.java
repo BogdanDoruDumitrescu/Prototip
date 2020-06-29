@@ -13,13 +13,14 @@ import java.util.Base64;
 
 public class UserService {
     private static ArrayList<User> u = new ArrayList<>();
+    private static String path;
 
     public static void loadUser(){
-        u.clear();
+        u = new ArrayList<>();
 
         try{
             JSONParser jp = new JSONParser();
-            FileReader fr = new FileReader("src/main/resources/User.json");
+            FileReader fr = new FileReader(path);
             Object obj = jp.parse(fr);
             JSONArray ja = (JSONArray)obj;
 
@@ -32,8 +33,9 @@ public class UserService {
                 String mail = o.get("mail").toString();
                 String role = o.get("role").toString();
                 int credit = Integer.parseInt(o.get("credit").toString());
+                String status = o.get("status").toString();
 
-                u.add(new User(name,username,password,mail,role,credit));
+                u.add(new User(name, username, password, mail, role, credit,status));
             }
         }catch (Exception e){
             System.out.println(e);
@@ -65,7 +67,7 @@ public class UserService {
     public static void writeUser() {
         FileWriter fw = null;
         try{
-            fw = new FileWriter("src/main/resources/User.json");
+            fw = new FileWriter(path);
 
             JSONArray ja = new JSONArray();
 
@@ -73,10 +75,11 @@ public class UserService {
                 JSONObject jo = new JSONObject();
                 jo.put("name",i.getName());
                 jo.put("username",i.getUsername());
-                jo.put("password",encodePassword(i.getPassword()));
+                jo.put("password",i.getPassword());
                 jo.put("mail",i.getMail());
                 jo.put("role",i.getRole());
                 jo.put("credit",String.valueOf(i.getCredit()));
+                jo.put("status",i.getStatus());
 
                 ja.add(jo);
             }
@@ -95,5 +98,7 @@ public class UserService {
         }
     }
 
-
+    public static void setPath(String path) {
+        UserService.path = path;
+    }
 }

@@ -5,16 +5,17 @@ import java.util.Objects;
 public class Race {
     private String driverUserName;
     private String clientUserName;
-    private int pricePerKm;
+    private static int pricePerKm;
     private int km;
     private int totalPrice;
+    private String state;
 
-    public Race( String driverUserName, String clientUserName, int pricePerKm,int km, int totalPrice) {
-        this.pricePerKm = pricePerKm;
-        this.totalPrice = totalPrice;
-        this.km = km;
+    public Race(String driverUserName, String clientUserName, int km, int totalPrice, String state) {
         this.driverUserName = driverUserName;
         this.clientUserName = clientUserName;
+        this.km = km;
+        this.totalPrice = totalPrice;
+        this.state = state;
     }
 
     public String getDriverUserName() {
@@ -33,20 +34,20 @@ public class Race {
         this.clientUserName = clientUserName;
     }
 
-    public int getPricePerKm() {
+    public static int getPricePerKm() {
         return pricePerKm;
     }
 
-    public void setPricePerKm(int pricePerKm) {
-        this.pricePerKm = pricePerKm;
+    public static void setPricePerKm(int pricePerKm) {
+        Race.pricePerKm = pricePerKm;
     }
 
     public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice() {
-        this.totalPrice = km * pricePerKm;
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public int getKm() {
@@ -55,6 +56,14 @@ public class Race {
 
     public void setKm(int km) {
         this.km = km;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     @Override
@@ -71,7 +80,13 @@ public class Race {
 
     @Override
     public int hashCode() {
-        return Objects.hash(pricePerKm, totalPrice, km, driverUserName, clientUserName);
+        int result = 31 * driverUserName.hashCode() + clientUserName.hashCode();
+        result = 31 * result + pricePerKm;
+        result = 31 * result + km;
+        result = 31 * result + totalPrice;
+        result = 31 * result + state.hashCode();
+
+        return result;
     }
 
     @Override
@@ -80,8 +95,9 @@ public class Race {
                 "driverUserName='" + driverUserName + '\'' +
                 ", clientUserName='" + clientUserName + '\'' +
                 ", pricePerKm=" + pricePerKm +
-                ", totalPrice=" + totalPrice +
                 ", km=" + km +
+                ", totalPrice=" + totalPrice +
+                ", state='" + state + '\'' +
                 '}';
     }
 }
