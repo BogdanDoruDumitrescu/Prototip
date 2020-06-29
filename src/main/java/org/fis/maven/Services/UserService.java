@@ -44,7 +44,7 @@ public class UserService {
         boolean found = false;
 
         for(User i:u){
-            if(i.getUsername().equals(id)&&i.getPassword().equals(pass)){
+            if(i.getUsername().equals(id) && i.getPassword().equals(pass)){
                 found=true;
                 break;
             }

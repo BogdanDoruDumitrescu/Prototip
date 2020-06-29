@@ -36,6 +36,10 @@ public class RaceService {
         }
     }
 
+    public static ArrayList<Race> getR(){
+        return r;
+    }
+
     public static void writeRace(){
         FileWriter fw = null;
         try{
@@ -49,9 +53,20 @@ public class RaceService {
                 jo.put("pricePerKm", i.getPricePerKm());
                 jo.put("km", i.getKm());
                 jo.put("totalPrice", i.getKm());
-            }
-        }catch{
 
+                ja.add(jo);
+            }
+
+            fw.write(ja.toJSONString());
+        }catch(Exception e){
+
+        }finally {
+            try{
+                fw.flush();
+                fw.close();
+            }catch (Exception e){
+                System.out.println(e);
+            }
         }
     }
 

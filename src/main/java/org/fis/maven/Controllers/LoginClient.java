@@ -41,7 +41,7 @@ public class LoginClient {
 
 
     public void login() {
-            /*try {
+            try {
                 if (UserService.checkCredentials(UsernameField.getText(), UserService.encodePassword(passwordField.getText()))){
                     try{
                         ArrayList<User> u = UserService.getU();
@@ -50,6 +50,12 @@ public class LoginClient {
                                 i.setLogged(true);
                             }
                         }
+                        Stage stage=(Stage)id.getScene().getWindow();
+                        Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("ClientPage.fxml"));
+                        stage.setTitle("Login or Register Menu");
+                        stage.setScene(new Scene(ceva,600,600));
+                        stage.show();
+
                     }catch (Exception e){
                         System.out.println(e);
                     }
@@ -58,6 +64,6 @@ public class LoginClient {
                     throw new UserPasswordIncorrect();
             }catch (UserPasswordIncorrect e){
                 System.out.println(e);
-            }*/
+            }
     }
 }
